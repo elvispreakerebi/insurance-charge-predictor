@@ -6,9 +6,9 @@ This project addresses the challenge of predicting medical insurance charges for
 
 ## Public API Endpoint
 
-**Live API URL**: https://insurance-charge-predictor.onrender.com
+**Live API URL**: <a href="https://insurance-charge-predictor.onrender.com" target="_blank" rel="noopener noreferrer">https://insurance-charge-predictor.onrender.com</a>
 
-**Swagger UI Documentation**: https://insurance-charge-predictor.onrender.com/docs
+**Swagger UI Documentation**: <a href="https://insurance-charge-predictor.onrender.com/docs" target="_blank" rel="noopener noreferrer">https://insurance-charge-predictor.onrender.com/docs</a>
 
 The API is publicly accessible and can be tested directly using the Swagger UI interface. All endpoints are routable and do not require localhost access.
 
@@ -16,7 +16,22 @@ The API is publicly accessible and can be tested directly using the Swagger UI i
 
 ## YouTube Demo Video
 
-📹 **Demo Video**: [Watch the 5-minute demo](https://youtu.be/XfsDMgUrz_c)
+📹 **Demo Video** (5 minutes):
+
+<div align="center">
+  <a href="https://youtu.be/MMQ_lXdisIE">
+    <img src="https://img.youtube.com/vi/MMQ_lXdisIE/maxresdefault.jpg" alt="Insurance Charge Predictor Demo Video" style="width:100%;max-width:640px;">
+  </a>
+</div>
+
+<details>
+<summary>Click to watch embedded video</summary>
+
+<div align="center">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/MMQ_lXdisIE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+</details>
 
 The video demonstrates:
 - API functionality and Swagger UI testing
@@ -178,17 +193,17 @@ Predict insurance charges based on customer information.
 - **Home Page**: Input form with 6 fields (age, sex, BMI, children, smoker, region)
 - **Result Page**: Displays predicted insurance charge with input summary
 - **Error Handling**: Validates inputs and displays clear error messages
-- **API Integration**: Connects to the live API at https://insurance-charge-predictor.onrender.com
+- **API Integration**: Connects to the live API at <a href="https://insurance-charge-predictor.onrender.com" target="_blank" rel="noopener noreferrer">https://insurance-charge-predictor.onrender.com</a>
 
 ### Troubleshooting
 - If dependencies fail to install, run `flutter clean` then `flutter pub get`
 - Ensure your device/emulator has internet connectivity for API calls
-- Check that the API endpoint is accessible: https://insurance-charge-predictor.onrender.com/health
+- Check that the API endpoint is accessible: <a href="https://insurance-charge-predictor.onrender.com/health" target="_blank" rel="noopener noreferrer">https://insurance-charge-predictor.onrender.com/health</a>
 
 ## Testing the API
 
 ### Using Swagger UI (Recommended):
-Visit https://insurance-charge-predictor.onrender.com/docs and use the interactive interface to test the `/predict` endpoint.
+Visit <a href="https://insurance-charge-predictor.onrender.com/docs" target="_blank" rel="noopener noreferrer">https://insurance-charge-predictor.onrender.com/docs</a> and use the interactive interface to test the `/predict` endpoint.
 
 ### Using curl:
 ```bash
