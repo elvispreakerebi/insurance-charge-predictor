@@ -1,6 +1,31 @@
 # Insurance Charge Prediction API
 
-A FastAPI-based REST API for predicting insurance charges using a trained machine learning model.
+## Mission and Problem
+
+This project addresses the challenge of predicting medical insurance charges for individuals based on their demographic and health characteristics. The problem involves building a machine learning model that can accurately estimate insurance costs using features such as age, BMI, smoking status, number of children, sex, and geographic region. The dataset used for training was obtained from Kaggle (insurance.csv), containing real-world insurance charge data. The solution provides both a REST API for programmatic access and a Flutter mobile application for end-user interaction, enabling accurate and accessible insurance charge predictions.
+
+## Public API Endpoint
+
+**Live API URL**: https://insurance-charge-predictor.onrender.com
+
+**Swagger UI Documentation**: https://insurance-charge-predictor.onrender.com/docs
+
+The API is publicly accessible and can be tested directly using the Swagger UI interface. All endpoints are routable and do not require localhost access.
+
+**Note**: Tests will be assessed using Swagger UI. The API endpoint is publicly available and returns predictions given input values.
+
+## YouTube Demo Video
+
+📹 **Demo Video**: [Watch the 5-minute demo](https://youtu.be/XfsDMgUrz_c)
+
+The video demonstrates:
+- API functionality and Swagger UI testing
+- Flutter mobile app features
+- End-to-end prediction workflow
+
+## Dataset Source
+
+The training dataset (`insurance.csv`) was obtained from **Kaggle** and contains insurance charge data with demographic and health-related features.
 
 ## Python Version Compatibility
 
@@ -17,48 +42,27 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-### Option 1: Automated Setup (Recommended)
-
-```bash
-# Run the setup script (will clean up any existing venv)
-./setup.sh
-
-# Activate virtual environment
-source venv/bin/activate
-
-# Start the server
-./run.sh
-```
-
-### Option 2: Manual Setup
-
-#### 1. Create a Virtual Environment (Recommended)
+### 1. Create a Virtual Environment (Recommended)
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-#### 2. Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 3. Verify Setup
-
-```bash
-python test_setup.py
-```
-
-#### 4. Verify Files Are Present
+### 3. Verify Files Are Present
 
 Ensure the following files are in the project directory:
 - `main.py` - FastAPI application
 - `best_model.joblib` - Trained model file
 - `insurance.csv` - Training dataset
 
-#### 5. Run the API Server
+### 4. Run the API Server
 
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
@@ -132,21 +136,63 @@ Predict insurance charges based on customer information.
 - `smoker`: Literal string - "yes" or "no"
 - `region`: Literal string - "northeast", "northwest", "southeast", or "southwest"
 
-## Deployment to Render
+## Running the Flutter Mobile App
 
-1. Create a new Web Service on Render
-2. Connect your GitHub repository
-3. Set the following:
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-4. Ensure `requirements.txt` is in the root directory
-5. Deploy!
+### Prerequisites
+- Flutter SDK installed (version 3.9.0 or higher)
+- Android Studio / Xcode (for mobile development)
+- An emulator/simulator or physical device
+
+### Step-by-Step Instructions
+
+1. **Navigate to the app directory:**
+   ```bash
+   cd app
+   ```
+
+2. **Install Flutter dependencies:**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the app:**
+   ```bash
+   flutter run
+   ```
+   
+   Or specify a device:
+   ```bash
+   flutter devices                    # List available devices
+   flutter run -d <device-id>        # Run on specific device
+   ```
+
+4. **For Android:**
+   - Ensure an Android emulator is running, or connect a physical device with USB debugging enabled
+   - The app will automatically build and install
+
+5. **For iOS (macOS only):**
+   - Ensure Xcode is installed and an iOS simulator is available
+   - Run `flutter run` to launch on the simulator
+
+### App Features
+- **Home Page**: Input form with 6 fields (age, sex, BMI, children, smoker, region)
+- **Result Page**: Displays predicted insurance charge with input summary
+- **Error Handling**: Validates inputs and displays clear error messages
+- **API Integration**: Connects to the live API at https://insurance-charge-predictor.onrender.com
+
+### Troubleshooting
+- If dependencies fail to install, run `flutter clean` then `flutter pub get`
+- Ensure your device/emulator has internet connectivity for API calls
+- Check that the API endpoint is accessible: https://insurance-charge-predictor.onrender.com/health
 
 ## Testing the API
 
+### Using Swagger UI (Recommended):
+Visit https://insurance-charge-predictor.onrender.com/docs and use the interactive interface to test the `/predict` endpoint.
+
 ### Using curl:
 ```bash
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "https://insurance-charge-predictor.onrender.com/predict" \
   -H "Content-Type: application/json" \
   -d '{
     "age": 25,
@@ -162,7 +208,7 @@ curl -X POST "http://localhost:8000/predict" \
 ```python
 import requests
 
-url = "http://localhost:8000/predict"
+url = "https://insurance-charge-predictor.onrender.com/predict"
 data = {
     "age": 25,
     "sex": "male",
